@@ -1,4 +1,4 @@
-package com.example.filters;
+package com.wavent.filters;
 
 /**
  * Created by arnaud on 26/10/16.

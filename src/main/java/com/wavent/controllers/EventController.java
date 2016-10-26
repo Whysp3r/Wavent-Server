@@ -1,7 +1,7 @@
-package com.example.controllers;
+package com.wavent.controllers;
 
-import com.example.bean.Event;
-import com.example.services.EventService;
+import com.wavent.bean.Event;
+import com.wavent.services.EventService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,11 +24,4 @@ public class EventController {
         return this.eventService.getAllEvents();
     }
 
-    public EventService getEventService() {
-        return eventService;
-    }
-
-    public void setEventService(EventService eventService) {
-        this.eventService = eventService;
-    }
 }

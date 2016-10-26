@@ -1,6 +1,6 @@
-package com.example.services;
+package com.wavent.services;
 
-import com.example.bean.Event;
+import com.wavent.bean.Event;
 
 import java.util.List;
 

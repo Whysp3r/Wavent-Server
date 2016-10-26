@@ -1,6 +1,5 @@
-package com.example.bean;
+package com.wavent.bean;
 
-import com.sun.javafx.beans.IDProperty;
 import org.springframework.data.annotation.Id;
 
 /**
@@ -14,6 +13,7 @@ public class Event {
 
     private String name;
     private String Description;
+    private String pictureEvent;
 
     public Event() {
 
@@ -46,6 +46,14 @@ public class Event {
 
     public void setDescription(String description) {
         Description = description;
+    }
+
+    public String getPictureEvent() {
+        return pictureEvent;
+    }
+
+    public void setPictureEvent(String pictureEvent) {
+        this.pictureEvent = pictureEvent;
     }
 
     @Override

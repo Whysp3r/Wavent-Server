@@ -1,20 +1,20 @@
-package com.example;
+package com.wavent;
 
-import com.example.bean.Event;
-import com.example.repository.EventRepository;
+import com.wavent.bean.Event;
+import com.wavent.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication implements CommandLineRunner {
+public class MainApplication implements CommandLineRunner {
 
 	@Autowired
 	private EventRepository repository;
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(MainApplication.class, args);
 	}
 
 	@Override
