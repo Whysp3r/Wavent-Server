@@ -15,5 +15,7 @@ public interface UserService {
 
     User getUserByMail(String mail);
 
+    User authentUser(String mail, String password);
+
     List<User> getAllUsers();
 }

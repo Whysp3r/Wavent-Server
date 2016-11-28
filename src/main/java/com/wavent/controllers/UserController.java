@@ -25,19 +25,23 @@ public class UserController {
         return this.userService.getUserById(user.getId());
     }
 
-
     @RequestMapping(method =  RequestMethod.GET)
     public List<User> getAllUser(){
         return this.userService.getAllUsers();
     }
 
-    @RequestMapping(value = "/{id}", method =  RequestMethod.GET)
-    public User getUserById(@PathVariable(value = "id") String id){
+    @RequestMapping(value = "/id/{id}", method =  RequestMethod.GET)
+    public User getUserById(@PathVariable String id){
         return this.userService.getUserById(id);
     }
 
-    @RequestMapping(value = "/{mail}", method =  RequestMethod.GET)
-    public User getUserByMail(@PathVariable(value = "mail") String mail){
+    @RequestMapping(value = "/mail/{mail:.+}", method =  RequestMethod.GET)
+    public User getUserByMail(@PathVariable String mail){
         return this.userService.getUserByMail(mail);
+    }
+
+    @RequestMapping(value = "/auth", method =  RequestMethod.POST)
+    public User authUse(@RequestBody User user){
+        return this.userService.authentUser(user.getMail(), user.getPassword());
     }
 }
