@@ -12,16 +12,17 @@ public class Event {
     private String id;
 
     private String name;
-    private String Description;
+    private String subject;
     private String pictureEvent;
+    private String creator;
 
     public Event() {
 
     }
 
-    public Event(String name, String description) {
+    public Event(String name, String subject) {
         this.name = name;
-        Description = description;
+        this.subject = subject;
     }
 
     public String getId() {
@@ -40,14 +41,6 @@ public class Event {
         this.name = name;
     }
 
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
-    }
-
     public String getPictureEvent() {
         return pictureEvent;
     }
@@ -56,12 +49,28 @@ public class Event {
         this.pictureEvent = pictureEvent;
     }
 
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
     @Override
     public String toString() {
         return "Event{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", Description='" + Description + '\'' +
+                ", Description='" + subject + '\'' +
                 '}';
     }
 }

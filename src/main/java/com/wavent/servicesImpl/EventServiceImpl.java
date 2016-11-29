@@ -18,7 +18,22 @@ public class EventServiceImpl implements EventService {
     private EventRepository repository;
 
     @Override
+    public Event createEvent(Event event) {
+        return repository.save(event);
+    }
+
+    @Override
+    public Event findEventById(String id) {
+        return repository.findOne(id);
+    }
+
+    @Override
     public List<Event> getAllEvents() {
         return repository.findAll();
+    }
+
+    @Override
+    public List<Event> getAllEventForSpecificUser(String creator) {
+        return repository.findByCreator(creator);
     }
 }

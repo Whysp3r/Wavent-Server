@@ -33,7 +33,7 @@ public class MainApplication implements CommandLineRunner {
 		}
 		System.out.println();
 
-		System.out.println(repository.findEventByName("Coinche bitchies"));
+		System.out.println(repository.findByName("Coinche bitchies"));
 
 	}
 }
