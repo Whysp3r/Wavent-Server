@@ -1,6 +1,7 @@
 package com.wavent.services;
 
 import com.wavent.bean.Event;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ public interface EventService {
 
     List<Event> getAllEvents();
 
-    List<Event> getAllEventForSpecificUser(String creator);
+    List<Event> getEventsByCreator(String creator);
+
+    List<Event> getEventsByParticipants(ObjectId participant);
 
 }

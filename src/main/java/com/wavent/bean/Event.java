@@ -2,6 +2,10 @@ package com.wavent.bean;
 
 import org.springframework.data.annotation.Id;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 /**
  * Created by arnaud on 26/10/16.
  */
@@ -13,8 +17,13 @@ public class Event {
 
     private String name;
     private String subject;
+    private String address;
+    private Date date;
     private String pictureEvent;
     private String creator;
+    private List<User> participants = new ArrayList<User>();
+    private int nbParticipantsMax;
+    private boolean finished;
 
     public Event() {
 
@@ -65,12 +74,62 @@ public class Event {
         this.subject = subject;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public List<User> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(List<User> participants) {
+        this.participants = participants;
+    }
+
+    public void addParticipant(User user){
+        this.participants.add(user);
+    }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
+    }
+
+    public int getNbParticipantsMax() {
+        return nbParticipantsMax;
+    }
+
+    public void setNbParticipantsMax(int nbParticipantsMax) {
+        this.nbParticipantsMax = nbParticipantsMax;
+    }
+
     @Override
     public String toString() {
         return "Event{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", Description='" + subject + '\'' +
+                ", subject='" + subject + '\'' +
+                ", address='" + address + '\'' +
+                ", date=" + date.toGMTString() +
+                ", pictureEvent='" + pictureEvent + '\'' +
+                ", creator='" + creator + '\'' +
+                ", participants=" + participants.toString() +
+                ", finished=" + finished +
                 '}';
     }
 }

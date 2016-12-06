@@ -3,6 +3,7 @@ package com.wavent.servicesImpl;
 import com.wavent.bean.Event;
 import com.wavent.repository.EventRepository;
 import com.wavent.services.EventService;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +34,12 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public List<Event> getAllEventForSpecificUser(String creator) {
+    public List<Event> getEventsByCreator(String creator) {
         return repository.findByCreator(creator);
+    }
+
+    @Override
+    public List<Event> getEventsByParticipants(ObjectId id) {
+        return repository.findByParticipantsId(id);
     }
 }
