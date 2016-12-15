@@ -1,6 +1,7 @@
 package com.wavent;
 
 import com.wavent.bean.Event;
+import com.wavent.bean.Message;
 import com.wavent.bean.User;
 import com.wavent.repository.EventRepository;
 import org.apache.commons.logging.Log;
@@ -31,10 +32,6 @@ public class MainApplication implements CommandLineRunner {
 
 		logger.info("Database clear");
 
-		//Create some new events
-		repository.save(new Event("Apero chez Nono","Venez partager un moment agreable avec plein de jacko bitchies"));
-		repository.save(new Event("Coinche bitchies","Ca joue ou sa discute bordel"));
-		repository.save(new Event("Slackline au park","venez taper la slack les potos"));
 
 		Event testParticpant = new Event("Slackline au park","venez taper la slack les potos");
 
@@ -45,6 +42,23 @@ public class MainApplication implements CommandLineRunner {
 
 		testParticpant.setDate(new Date());
 		testParticpant.setNbParticipantsMax(4);
+
+		Message message1 = new Message();
+		Message message2 = new Message();
+
+		message1.setIdEvent(testParticpant.getId());
+		message1.setIdUser(user.getId());
+		message1.setDate(new Date());
+		message1.setMessage("Hello, je voulais savoir si tu as assez de jacko pour la soirée ?");
+
+		message2.setIdEvent(testParticpant.getId());
+		message2.setIdUser(user.getId());
+		message2.setDate(new Date());
+		message2.setMessage("Ouai c'est cool t'inquiète");
+
+		testParticpant.addMessage(message1);
+		testParticpant.addMessage(message2);
+
 		repository.save(testParticpant);
 
 		logger.info("Application wavent started !");

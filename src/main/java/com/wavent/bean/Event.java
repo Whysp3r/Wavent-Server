@@ -22,6 +22,7 @@ public class Event {
     private String pictureEvent;
     private String creator;
     private List<User> participants = new ArrayList<User>();
+    private List<Message> messages = new ArrayList<Message>();
     private int nbParticipantsMax;
     private boolean finished;
 
@@ -116,6 +117,18 @@ public class Event {
 
     public void setNbParticipantsMax(int nbParticipantsMax) {
         this.nbParticipantsMax = nbParticipantsMax;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public void addMessage(Message message){
+        this.messages.add(message);
     }
 
     @Override
