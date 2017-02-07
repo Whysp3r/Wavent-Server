@@ -1,6 +1,7 @@
 package com.wavent.controllers;
 
 import com.wavent.bean.Event;
+import com.wavent.bean.Message;
 import com.wavent.bean.User;
 import com.wavent.services.EventService;
 import org.bson.types.ObjectId;
@@ -53,6 +54,12 @@ public class EventController {
         }
     }
 
-
+    @RequestMapping(value = "/addMessageTo/{eventId}",method =  RequestMethod.POST)
+    public Event addMessage(@PathVariable String eventId,@RequestBody Message message){
+        Event eventToAdd = this.eventService.findEventById(eventId);
+            eventToAdd.addMessage(message);
+            this.eventService.createEvent(eventToAdd);
+            return this.eventService.findEventById(eventToAdd.getId());
+    }
 
 }
